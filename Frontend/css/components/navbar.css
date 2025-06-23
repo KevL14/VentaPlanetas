@@ -1,0 +1,40 @@
+
+#navbar{
+    justify-content: right;
+    background-color: var(--bg-color);
+
+}
+#navbar .button-container {
+    display: flex;
+    background-color: var(--bg-color);
+    width: 30rem;
+
+    align-items: center;
+    justify-content: space-around;
+}
+
+#navbar .button {
+    outline: 0 !important;
+    border: 0 !important;
+    width: 12%;
+    height: 3rem;
+    margin: .5rem .3rem;
+    border-radius: 50%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: all ease-in-out 0.3s;
+    cursor: pointer;
+}
+
+#navbar .button:hover {
+    background-color: rgb(84, 83, 83);
+    color:var(--input-focus);
+    transform: translateY(-3px);
+}
+
+#navbar .icon {
+  font-size: 1.5rem;
+}
