@@ -5,11 +5,12 @@
 /* paleta de colores */
 :root{
   /* font colors  */
-  --bg-color: #112A4D;
+  --bg-color: #16213E;
   --bg-color-w: #fff;
-  --main-color: #112A4D;
+  /* --main-color: #363674; */
   
-  --input-focus: #73efb9;
+  --input-focus-w: #73efb9;
+  --input-focus-b: #0abd61;
 
   --font-color: #000;
   --font-color-w:#fff;

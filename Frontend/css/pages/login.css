@@ -1,6 +1,6 @@
 #login{
   display: flex;
-  background-image: url("/Frontend/images/login/Background.webp");
+  background-image: url("/Frontend/images/Pages/login/Background.webp");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-color: rgba(0, 0, 0, 0.4); /* capa negra con 50% de opacidad */
@@ -30,7 +30,7 @@
   top: 0;
   width: 100px;
   text-decoration: underline;
-  color: var(--input-focus);
+  color: var(--input-focus-w);
   font-weight: 600;
 }
 
@@ -83,7 +83,7 @@
 }
 
 .toggle:checked + .slider {
-  background-color: var(--input-focus);
+  background-color: var(--input-focus-w);
 }
 
 .toggle:checked + .slider:before {
@@ -96,7 +96,7 @@
 }
 
 .toggle:checked ~ .card-side:after {
-  color: var(--input-focus);
+  color: var(--input-focus-w);
   text-decoration: underline;
 }
 
@@ -181,7 +181,7 @@
 }
 
 .flip-card__input:focus {
-  border: 2px solid var(--input-focus);
+  border: 2px solid var(--input-focus-w);
 }
 
 .flip-card__btn:active, .button-confirm:active {
@@ -203,7 +203,7 @@
   cursor: pointer;
 } 
 .flip-card__btn:hover{
-  background-color: var(--input-focus);
+  background-color: var(--input-focus-w);
   color: var(--bg-color);
   transform: translate(-3px, -3px);
 }

@@ -1,14 +1,25 @@
-
 #navbar{
-    justify-content: right;
     background-color: var(--bg-color);
-
+    justify-content: center;
+    height: 8rem;
+    align-items: center;
 }
+#navbar #logoNav{
+    color: var(--font-color);
+    margin: 0 15%;
+    font-size: clamp(2rem, 3vh, 5rem);
+    cursor: default;
+    user-select: none;
+}
+
 #navbar .button-container {
     display: flex;
-    background-color: var(--bg-color);
-    width: 30rem;
-
+    border-radius: 47px;
+    background: var(--bg-color-w);
+    box-shadow:  2px 2px 5px #d5d5d5,
+                -2px -2px 5px #ebebeb;
+    width: 60rem;
+    border-radius: 10px;
     align-items: center;
     justify-content: space-around;
 }
@@ -16,10 +27,10 @@
 #navbar .button {
     outline: 0 !important;
     border: 0 !important;
-    width: 12%;
+    width: 10%;
     height: 3rem;
-    margin: .5rem .3rem;
-    border-radius: 50%;
+    margin: .4rem .3rem;
+    border-radius: 10%;
     background-color: transparent;
     display: flex;
     align-items: center;
@@ -30,11 +41,12 @@
 }
 
 #navbar .button:hover {
-    background-color: rgb(84, 83, 83);
-    color:var(--input-focus);
     transform: translateY(-3px);
 }
-
+#navbar .button:hover .icon {
+    color: var(--input-focus-b);
+}
 #navbar .icon {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
+  color: black;
 }

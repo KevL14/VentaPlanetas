@@ -1,104 +1,98 @@
 package VentaPlanetas.model;
 
-import java.util.List;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tb_planets")
 public class Planet {
-    private String englishName;
-    private Double gravity;
-    private Long semimajorAxis;
-    private Double sideralOrbit;
-    private Double sideralRotation;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-    private Mass mass;
-    private Volume vol;
-    private Atmosphere atmosphere;
+    @Column(nullable = false, unique = true)
+    private String name;
 
-    // Getters y Setters
+    @Column(nullable = false)
+    private String atmosphere;
 
-    public String getEnglishName() {
-        return englishName;
+    @Column(nullable = false)
+    private String type;
+
+    @Column(nullable = false)
+    private String climate;
+
+    @Column(nullable = false)
+    private String description;
+
+    // Constructor vacío
+    public Planet() {
     }
 
-    public void setEnglishName(String englishName) {
-        this.englishName = englishName;
+    // Constructor con todos los campos
+    public Planet(Integer id, String name, String atmosphere, String type, String climate, String description) {
+        this.id = id;
+        this.name = name;
+        this.atmosphere = atmosphere;
+        this.type = type;
+        this.climate = climate;
+        this.description = description;
     }
 
-    public Double getGravity() {
-        return gravity;
+    // Getters y setters
+    public Integer getId() {
+        return id;
     }
 
-    public void setGravity(Double gravity) {
-        this.gravity = gravity;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public Long getSemimajorAxis() {
-        return semimajorAxis;
+    public String getName() {
+        return name;
     }
 
-    public void setSemimajorAxis(Long semimajorAxis) {
-        this.semimajorAxis = semimajorAxis;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Double getSideralOrbit() {
-        return sideralOrbit;
-    }
-
-    public void setSideralOrbit(Double sideralOrbit) {
-        this.sideralOrbit = sideralOrbit;
-    }
-
-    public Double getSideralRotation() {
-        return sideralRotation;
-    }
-
-    public void setSideralRotation(Double sideralRotation) {
-        this.sideralRotation = sideralRotation;
-    }
-
-    public Mass getMass() {
-        return mass;
-    }
-
-    public void setMass(Mass mass) {
-        this.mass = mass;
-    }
-
-    public Volume getVol() {
-        return vol;
-    }
-
-    public void setVol(Volume vol) {
-        this.vol = vol;
-    }
-
-    public Atmosphere getAtmosphere() {
+    public String getAtmosphere() {
         return atmosphere;
     }
 
-    public void setAtmosphere(Atmosphere atmosphere) {
+    public void setAtmosphere(String atmosphere) {
         this.atmosphere = atmosphere;
     }
 
-    public static class Mass {
-        private Double massValue;
-        private Integer massExponent;
-        // Getters y Setters
+    public String getType() {
+        return type;
     }
 
-    public static class Volume {
-        private Double volValue;
-        private Integer volExponent;
-        // Getters y Setters
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public static class Atmosphere {
-        private List<Component> components;
-        // Getters y Setters
+    public String getClimate() {
+        return climate;
     }
 
-    public static class Component {
-        private String name;
-        private Double percent;
-        // Getters y Setters
+    public void setClimate(String climate) {
+        this.climate = climate;
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    
+    
 }
