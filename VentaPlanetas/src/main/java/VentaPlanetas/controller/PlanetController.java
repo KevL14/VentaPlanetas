@@ -60,7 +60,7 @@ public class PlanetController {
         return ResponseEntity.ok(planetFind);
     }
 
-     @PutMapping("/{id}")
+     @PutMapping("edit/{id}")
     public ResponseEntity<?> editplanet(@Validated @PathVariable Integer id, @RequestBody Planet planet, BindingResult result){
         if(result.hasErrors()) {
             Map<String, String> errores = new HashMap<>();
@@ -76,7 +76,7 @@ public class PlanetController {
         return ResponseEntity.ok(this.planetService.editPlanet(id,planet));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("delete/{id}")
     public ResponseEntity<?> deleteplanet(@PathVariable Integer id){
         Optional<Planet> planetFind=this.planetService.findPlanetById(id);
         if(!planetFind.isPresent()){

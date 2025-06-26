@@ -39,7 +39,7 @@ public class PlanetService {
 
         return planetRepository.save(existingPlanet); // ✅ se guarda el objeto ya existente
     }
-        return new Planet();
+        return null;
     }
     public void deletePlanet(Integer id){
         this.planetRepository.deleteById(id);
