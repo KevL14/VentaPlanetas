@@ -1,9 +1,11 @@
 import { home } from './pages/home.js';
 import { loginPage } from './pages/login.js';
+import { perfilePage }from './pages/perfile.js';
 
 const routes = {
   '/': home,
   '/login': loginPage,
+  '/perfile': perfilePage,
 };
 
 export function router() {
@@ -28,8 +30,7 @@ export function router() {
 
 function viewComponets(pathPage){
   // Mostrar u ocultar navbar y footer según la ruta
-  const hideInLogin = (pathPage === '/login');
-  document.getElementById('navbar').style.display = hideInLogin ? 'none' : 'flex';
-  document.getElementById('footer').style.display = hideInLogin ? 'none' : 'block';
+  document.getElementById('navbar').style.display = pathPage === '/login' ? 'none' : 'flex';
+  document.getElementById('footer').style.display = pathPage === '/login' ? 'none' : 'block';
 
 }

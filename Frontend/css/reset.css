@@ -5,7 +5,7 @@
 /* paleta de colores */
 :root{
   /* font colors  */
-  --bg-color: #16213E;
+  --bg-color: #000E22;
   --bg-color-w: #fff;
   /* --main-color: #363674; */
   
@@ -14,6 +14,7 @@
 
   --font-color: #000;
   --font-color-w:#fff;
+  --font-color-tg:#13AB88;
   --font-color-alt: #0e5579;
 
   /* font family  */
@@ -35,6 +36,9 @@
   margin: 0;
 }
 
+html{
+  scroll-behavior: smooth;
+}
 /* 3. Enable keyword animations */
 @media (prefers-reduced-motion: no-preference) {
   html {
@@ -45,11 +49,22 @@
 body {
   /* 4. Add accessible line-height */
   line-height: 1.5;
-  height: 100vh;
   font-family: var(--font-body);
+  background-color: #000;
   /* 5. Improve text rendering */
   -webkit-font-smoothing: antialiased;
 }
+body::selection{
+  background-color: transparent;
+  color: #1bd6e4;
+}
+body , #app{
+  height: auto;
+}
+body::-webkit-scrollbar {     /* Chrome, Safari */
+  display: none;
+}
+
 
 /* 6. Improve media defaults */
 img, picture, video, canvas, svg {
@@ -74,7 +89,7 @@ p {
 }
 h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
-  font-family: var(--font-title);
+  font-family: var(--font);
 }
 
 

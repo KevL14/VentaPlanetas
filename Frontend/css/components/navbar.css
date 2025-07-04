@@ -1,12 +1,19 @@
-#navbar{
-    background-color: var(--bg-color);
-    justify-content: center;
-    height: 8rem;
-    align-items: center;
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 18.5%;
+  width: 100%;
+  z-index: 1000;
+  transition: top 0.3s ease;
+
+}
+
+#navbar.hidden {
+  top: -100px;
 }
 #navbar #logoNav{
-    color: var(--font-color);
-    margin: 0 15%;
+    color: var(--font-color-w);
+    margin: 0 14%;
     font-size: clamp(2rem, 3vh, 5rem);
     cursor: default;
     user-select: none;
@@ -14,12 +21,17 @@
 
 #navbar .button-container {
     display: flex;
-    border-radius: 47px;
-    background: var(--bg-color-w);
-    box-shadow:  2px 2px 5px #d5d5d5,
-                -2px -2px 5px #ebebeb;
+    position: fixed;
+    background-color: #171717;
+    margin-top: 10px;
+
+    flex-direction: row;
+      border-top: 1px solid #bcbcbc;
+      border-bottom: 1px solid #bcbcbc;
+
+    border-radius: 50px;
     width: 60rem;
-    border-radius: 10px;
+    height: 3.5rem;
     align-items: center;
     justify-content: space-around;
 }
@@ -29,8 +41,8 @@
     border: 0 !important;
     width: 10%;
     height: 3rem;
-    margin: .4rem .3rem;
-    border-radius: 10%;
+    margin:0 .3rem;
+    border-radius: 50px;
     background-color: transparent;
     display: flex;
     align-items: center;
@@ -40,13 +52,13 @@
     cursor: pointer;
 }
 
+#navbar .icon { 
+  font-size: 1.7rem;
+  color: white;
+}
 #navbar .button:hover {
-    transform: translateY(-3px);
+    background-color: var(--input-focus-b);
 }
 #navbar .button:hover .icon {
-    color: var(--input-focus-b);
-}
-#navbar .icon {
-  font-size: 1.7rem;
-  color: black;
+    color: black;
 }

@@ -2,7 +2,7 @@ export function navbar(){
 var nav = document.createElement("nav");
 nav.innerHTML=`
 <div class="button-container">
-  <button class="button">
+  <button class="button" id="homeNav">
     <svg class="icon" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em"
       width="1em" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -33,7 +33,7 @@ nav.innerHTML=`
     </svg>
   </button>
 
-  <button class="button" id="logout">
+  <button class="button" id="perfileNav">
     <svg class="icon" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em"
       width="1em" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -44,9 +44,37 @@ nav.innerHTML=`
 </div>
 
 `;
-nav.querySelector('#logout').addEventListener('click', () => {
-location.hash = '/login';
+nav.querySelector('#homeNav').addEventListener('click', () => {
+location.hash = '/';
 });
+nav.querySelector('#perfileNav').addEventListener('click', () => {
+location.hash = '/perfile';
+});
+
+
+
+
+
+
+
+
+let lastScrollTop = 0;
+const header = document.getElementById("navbar");
+
+window.addEventListener("scroll", function () {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+  if (scrollTop > lastScrollTop) {
+    // Scroll hacia abajo
+    header.classList.add("hidden");
+  } else {
+    // Scroll hacia arriba
+    header.classList.remove("hidden");
+  }
+
+  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+});
+
 return nav;
 
 }
