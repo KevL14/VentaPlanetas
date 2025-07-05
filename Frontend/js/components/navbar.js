@@ -43,45 +43,32 @@ nav.innerHTML=`
   </button>
 </div>
 
-`;
-  nav.querySelector('#homeNav').addEventListener('click', () => {
-  location.hash = '/';
-  });
-  nav.querySelector('#shoppingNav').addEventListener('click', () => {
-  location.hash = '/shopping';
-  });
-  
-  nav.querySelector('#contactUsNav').addEventListener('click', () => {
-  location.hash = '/contactUs';
-  });
-  nav.querySelector('#perfileNav').addEventListener('click', () => {
-  location.hash = '/perfile';
+`;  nav.addEventListener('click', e => {
+    const btnHome = e.target.closest('#homeNav');
+    const btnShopping = e.target.closest('#shoppingNav');
+    const btnContact = e.target.closest('#contactUsNav');
+    const btnPerfile = e.target.closest('#perfileNav');
+
+    if (btnHome) location.hash = '/';
+    else if (btnShopping) location.hash = '/shopping';
+    else if (btnContact) location.hash = '/contactUs';
+    else if (btnPerfile) location.hash = '/perfile';
   });
 
+  // Scroll handler, asegurando remover el anterior para evitar duplicados
+  const header = document.getElementById("navbar");
+  let lastScrollTop = 0;
 
-
-
-
-
-
-
-let lastScrollTop = 0;
-const header = document.getElementById("navbar");
-
-window.addEventListener("scroll", function () {
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-  if (scrollTop > lastScrollTop) {
-    // Scroll hacia abajo
-    header.classList.add("hidden");
-  } else {
-    // Scroll hacia arriba
-    header.classList.remove("hidden");
+  function scrollHandler() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > lastScrollTop) header.classList.add("hidden");
+    else header.classList.remove("hidden");
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
   }
 
-  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-});
+  window.removeEventListener("scroll", scrollHandler);
+  window.addEventListener("scroll", scrollHandler);
 
-return nav;
+  return nav;
 
 }

@@ -44,7 +44,7 @@ export function home(){
         </section>
 
         <section id="sec_infoWeOffer" class="sectionHome">
-            <h1>Ofecemos</h1>
+            <h1>Ofrecemos</h1>
             <p  data-aos="fade-down">Contamos con multiples lugares en diversos planetas donde puedes planear tu vida futura o crear lugares donde descansar</p>
             <div class="parent">
             <div class="weOffer1 weOfferImages" data-aos="fade" data-aos-delay="600"> <h1>Lunas</h1></div>

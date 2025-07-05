@@ -28,7 +28,7 @@ public class LotService {
                 existinglot.setPlace(lotEdit.getPlace());
                 existinglot.setTypePlace(lotEdit.getTypePlace());
                 existinglot.setSquareSize(lotEdit.getSquareSize());
-                existinglot.setURLImage(lotEdit.getURLImage());
+                existinglot.setUrlImage(lotEdit.getUrlImage());
 
                 return lotRepository.save(existinglot); // ✅ se guarda el objeto ya existente
             }
