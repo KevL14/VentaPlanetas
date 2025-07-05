@@ -79,3 +79,59 @@ footer .conteinerCompaniesFooter .tecnologyList li .icon:hover{
   transform: translateY(-5px) rotate(-8deg);
 }
 
+
+
+@media (max-width: 1024px) {
+  footer .conteinerInfoFooter {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  footer .conteinerInfoFooter span:first-child {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  footer .conteinerInfoFooter span:last-child {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    gap: 1.5rem;
+  }
+
+  footer .conteinerCompaniesFooter .tecnologyList {
+    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  footer {
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  footer .conteinerInfoFooter span:first-child {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  footer .conteinerInfoFooter ul li {
+    font-size: 0.85rem;
+  }
+
+  footer .conteinerCompaniesFooter h6 {
+    font-size: 1.2rem;
+  }
+
+  footer .conteinerCompaniesFooter .tecnologyList {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+  }
+
+  footer .conteinerCompaniesFooter .tecnologyList li .icon {
+    width: 1.2em;
+  }
+}

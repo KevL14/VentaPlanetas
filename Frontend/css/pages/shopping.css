@@ -1,0 +1,195 @@
+#shopping {
+  min-height: 100vh;
+  background-color: #0f0f1f;
+  font-family: 'Montserrat', sans-serif;
+  padding: 3rem 0;
+}
+
+.shopping-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+  color: #fff;
+}
+
+.shopping-title {
+  text-align: center;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  margin-bottom: 2.5rem;
+  color: #ffffff;
+}
+
+/* 🔍 Filtro */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+
+.filter-bar input,
+.filter-bar select,
+.filter-bar button {
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #1a1a2e;
+  color: white;
+  min-width: 150px;
+}
+
+.filter-bar button {
+  background-color: #058a8c;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter-bar button:hover {
+  background-color: #f7f7f7;
+  color: black;
+}
+
+/* 🪐 Grid de tarjetas */
+.lots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  justify-items: center;
+  padding: 0 1rem;
+}
+
+/* 🧱 Tarjeta individual de lote */
+.lot-card {
+  background-color: #181830;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid #8c52ff;
+  box-shadow: 0 0 15px rgba(140, 82, 255, 0.5);
+  width: 100%;
+  max-width: 330px;
+  display: flex;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  padding-bottom: 1.4rem;
+}
+
+.lot-card:hover {
+  transform: translateY(-8px);
+  border-color: #00d5ff;
+}
+
+/* 🖼 Imagen */
+.lot-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  padding: 1rem;
+}
+
+/* 📋 Descripción */
+.lot-card .lot-description {
+  padding: 0 1.2rem;
+  width: 100%;
+  text-align: left;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.lot-card .lot-description h3 {
+  font-size: 1.4rem;
+  color: #52daff;
+  margin-bottom: 0.5rem;
+}
+
+.lot-card .lot-description p {
+  font-size: 0.95rem;
+  color: #ccc;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* 🔻 Información técnica */
+.lot-card .lot-overlay {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  background-color: #1a1a2e;
+  border-top: 1px solid #2c2c40;
+}
+
+/* 🏷️ Etiquetas */
+.lot-card .tag {
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+
+}
+
+.lot-card .tag.tipo {
+  border: 2px solid white;
+  background-color: #131313;
+  color: #bf9fff;
+}
+
+.lot-card .tag.precio {
+  border: 2px solid black;
+  background-color: #fff;
+  color: #076d81;
+}
+
+/* 🛒 Botón grande y centrado */
+.lot-card .buy-btn {
+  margin-top: 1rem;
+  width: 90%;
+  padding: 0.8rem 0;
+  background-color: #11B8BB;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.lot-card .buy-btn:hover {
+  background-color: #8eedef;
+  transform: scale(1.05);
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .lots-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lot-card .buy-btn {
+    width: 100%;
+  }
+
+  .lot-card .lot-description {
+    padding: 1rem;
+  }
+
+  .lot-card .lot-description h3 {
+    font-size: 1.2rem;
+  }
+
+  .lot-card .lot-description p {
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,144 @@
+#contactUs{
+    height: auto;
+    background-color: white;
+    background-image: url("/Frontend/images/Pages/contactUs/Background.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+/* section 1 */
+#contactUs #cont_infoContactUs{
+    width: 100%;
+    height: 48rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+}
+#cont_infoContactUs >p{
+    font-size: clamp(2rem, 4vh, 4rem);
+    color: var(--font-color-tg);
+}
+#cont_infoContactUs >h1{
+     font-size: clamp(4rem, 4vh, 6rem);
+}
+#cont_infoContactUs >h2{
+    width: 80%;
+    color: #9f9f9f;
+
+}
+#cont_infoContactUs #cont_CardsInfoContactUs{
+
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+
+    margin-top: 5rem;
+
+}
+#cont_infoContactUs #cont_CardsInfoContactUs span{
+    width: 30%;
+    height: 16rem;
+    border-radius: 11px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    background-color: rgb(255, 255, 255);
+}
+#cont_infoContactUs #cont_CardsInfoContactUs span h1{
+    margin: 8% 0;
+}
+#cont_infoContactUs #cont_CardsInfoContactUs span p{
+    font-size: clamp(1.3rem,2vh, 3rem);
+}
+
+.iconsInfoContact{
+    width: 3rem;
+    height: 3rem;
+}
+
+
+
+
+
+/* section 2 */
+
+#contactUs #cont_formContactUs{
+height: 50rem;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+#contactUs #cont_formContactUs h1{
+    font-size: clamp(3rem, 4vh, 6rem);
+    margin: 2rem 0 ;
+}
+#cont_formContactUs #formContactUs{
+    background-color: #0F0E0E;
+    width: 60%;
+    border: 2px solid rgb(171, 171, 171);
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 70%;
+    color: #0B0B0B;
+}
+#cont_formContactUs #formContactUs span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem 0;
+}
+#cont_formContactUs #formContactUs span input{
+    width: 80%;
+    height: 4rem;
+    padding-left: 2%;
+    color: white;
+        border: 2px solid rgb(171, 171, 171);
+    background-color: #120F10;
+}
+
+#formContactUs span:last-of-type{
+    height: 10rem;
+}
+#formContactUs span:last-of-type textarea{
+    width: 87%!important;
+    height: 100%!important;
+    color: white;
+    padding: 1%;
+            border: 2px solid rgb(171, 171, 171);
+    background-color: #120F10;
+     resize: none; /* evita que el usuario lo redimensione manualmente */
+
+}
+#formContactUs #btnSendForm{
+    margin: 0 auto;
+    cursor: pointer;
+    width: 80%;
+    height: 5rem;
+    color: white;
+    background-color: #120F10;
+    border: 3px solid cyan;
+    font-size: 2rem;
+    font-weight: 800;
+    border-radius: 11px;
+}
+#formContactUs #btnSendForm:hover{
+    border: 3px solid white;
+    color: cyan;
+    background-color: #242424;
+}
+
+
+.iconsFormContact{
+    width: 4rem;
+    height: 4rem;
+    
+}

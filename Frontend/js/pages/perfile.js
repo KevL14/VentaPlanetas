@@ -1,6 +1,8 @@
 export function perfilePage() {
    var perfile = document.createElement("div");
    perfile.id = "perfile";
+      perfile.dataset.aos = 'fade';
+   perfile.dataset.aosDuration = '1000';
    perfile.innerHTML = `
    
         <section id="cont_InfoPerfile">

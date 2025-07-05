@@ -247,3 +247,112 @@
     transform: translateX(0%);
   }
 }
+
+
+
+/* responsive */
+@media (max-width: 1024px) {
+  .sectionHome {
+    height: auto;
+    padding-bottom: 2rem;
+  }
+
+    .weOfferImages {
+    background-attachment: scroll !important;
+    background-size: cover !important; /* puedes cambiar a contain si prefieres ajuste completo */
+    background-position: center;
+  }
+
+  #home #sec_infoMain {
+    background-size: cover;
+    background-position: center;
+    padding: 4rem 1rem;
+  }
+
+  #home #sec_infoMain .sec1_titles {
+    font-size: 2.5rem;
+  }
+
+  #home #sec_infoMain p {
+    width: 80%;
+    font-size: 1rem;
+  }
+
+  #home #sec_infoMain .marquee__group span {
+    font-size: 1.4rem;
+    margin: 0 1rem;
+  }
+
+  #home #sec_infoDescription {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  #home #sec_infoDescription div:first-child {
+    padding-left: 0;
+  }
+
+  #home #sec_infoDescription div:last-child img {
+    width: 90%;
+    height: auto;
+  }
+
+  #home #sec_infoWeOffer p {
+    width: 90%;
+    font-size: 1rem;
+  }
+
+
+}
+
+@media (max-width: 600px) {
+  #home #sec_infoMain h1 {
+    font-size: 1.8rem;
+  }
+
+  #home #sec_infoMain h2 {
+    font-size: 1.2rem;
+    white-space: normal;
+    text-align: center;
+  }
+
+  #home #sec_infoMain p {
+    font-size: 0.95rem;
+  }
+
+  .marquee_header {
+    font-size: 1.4rem;
+  }
+
+  #home #sec_infoMain .marquee__group span {
+    font-size: 1.1rem;
+    padding: 4px 8px;
+    margin: 0 0.5rem;
+  }
+
+  #home #sec_infoDescription div:first-child h1,
+  #home #sec_infoWeOffer h1 {
+    font-size: 2rem;
+  }
+
+  #home #sec_infoDescription div:first-child p,
+  #home #sec_infoWeOffer p {
+    font-size: 0.9rem;
+    width: 95%;
+  }
+
+  .weOfferImages {
+    height: 18rem;
+    font-size: 0.9rem;
+    background-size: 60%;
+    background-attachment: scroll !important; /* 🔥 override en móvil también */
+  }
+
+  #home #sec_infoWeOffer .parent {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+}

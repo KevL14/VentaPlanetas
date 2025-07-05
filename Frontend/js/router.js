@@ -1,10 +1,14 @@
 import { home } from './pages/home.js';
 import { loginPage } from './pages/login.js';
 import { perfilePage }from './pages/perfile.js';
+import { contactPage } from './pages/contact.js';
+import { shoppingPage } from './pages/shopping.js';
 
 const routes = {
   '/': home,
   '/login': loginPage,
+  '/shopping':shoppingPage,
+  '/contactUs': contactPage,
   '/perfile': perfilePage,
 };
 

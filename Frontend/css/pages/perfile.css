@@ -131,3 +131,56 @@ justify-content: space-between;
 
 
 
+
+@media screen and (max-width: 1024px) {
+  #perfile {
+    background-size: cover;
+    padding: 2rem 1rem;
+  }
+
+  #perfile #cont_InfoPerfile {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    padding: 3rem 1.5rem;
+  }
+
+  #perfile #cont_InfoPerfile #infoOwn,
+  #perfile #cont_InfoPerfile #cont_InfoFinancesLots {
+    width: 100%;
+    margin: 0 0 2rem 0;
+    height: auto;
+  }
+
+  #infoOwn #photoPerfileUser {
+    width: 12rem !important;
+    height: 12rem !important;
+  }
+
+  #cont_InfoFinancesLots #infoLotsListOptions {
+    flex-direction: column;
+  }
+
+  #cont_InfoFinancesLots #infoLotsListOptions a {
+    width: 100%;
+    margin-bottom: 1rem;
+    font-size: clamp(0.6rem, 2vh, 1rem);
+  }
+
+  #cont_InfoFinancesLots #infoFinanceUser table tr td {
+    font-size: clamp(1rem, 3vh, 2rem);
+  }
+
+  #perfile #cont_ListLotsUser {
+    flex-direction: column;
+    height: auto;
+    padding: 2rem 1rem;
+  }
+
+  #perfile #cont_ListLotsUser h1 {
+    font-size: 2rem;
+  }
+}
+
+
+

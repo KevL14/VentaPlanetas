@@ -12,7 +12,7 @@ nav.innerHTML=`
   </button>
 
 
-  <button class="button">
+  <button class="button" id="shoppingNav">
     <svg class="icon" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
       stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
       <circle cx="9" cy="21" r="1"></circle>
@@ -25,7 +25,7 @@ nav.innerHTML=`
   <h1 id="logoNav">SpaceLots</h1>
 
 
-  <button class="button">
+  <button class="button" id="contactUsNav">
     <svg class="icon" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em"
       width="1em" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -44,12 +44,19 @@ nav.innerHTML=`
 </div>
 
 `;
-nav.querySelector('#homeNav').addEventListener('click', () => {
-location.hash = '/';
-});
-nav.querySelector('#perfileNav').addEventListener('click', () => {
-location.hash = '/perfile';
-});
+  nav.querySelector('#homeNav').addEventListener('click', () => {
+  location.hash = '/';
+  });
+  nav.querySelector('#shoppingNav').addEventListener('click', () => {
+  location.hash = '/shopping';
+  });
+  
+  nav.querySelector('#contactUsNav').addEventListener('click', () => {
+  location.hash = '/contactUs';
+  });
+  nav.querySelector('#perfileNav').addEventListener('click', () => {
+  location.hash = '/perfile';
+  });
 
 
 

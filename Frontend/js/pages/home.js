@@ -2,7 +2,7 @@ export function home(){
     var homePage = document.createElement("div");
     homePage.id="home";
     homePage.innerHTML=`
-        <section id="sec_infoMain" class="sectionHome">
+        <section id="sec_infoMain" class="sectionHome" data-aos="fade" data-aos-duration="1500">
             <h1 class="sec1_titles">Comprar y Vender</h1>
             <h2 class="sec1_titles">Lotes en Planetas y Lunas</h2>
             <p>Spacelot es una plataforma para comprar y vender terrenos virtuales en planetas y lunas, combinando tecnología, exploración espacial y propiedad digital en una experiencia única.</p>
@@ -45,7 +45,7 @@ export function home(){
 
         <section id="sec_infoWeOffer" class="sectionHome">
             <h1>Ofecemos</h1>
-            <p  data-aos="fade-down">Ofrecemos multiples lugares en diversos planetas donde puedes planear tu vida futura o crear lugares donde descansar</p>
+            <p  data-aos="fade-down">Contamos con multiples lugares en diversos planetas donde puedes planear tu vida futura o crear lugares donde descansar</p>
             <div class="parent">
             <div class="weOffer1 weOfferImages" data-aos="fade" data-aos-delay="600"> <h1>Lunas</h1></div>
             <div class="weOffer2 weOfferImages" data-aos="fade" data-aos-delay="300"> <h1>Planetas</h1></div>
