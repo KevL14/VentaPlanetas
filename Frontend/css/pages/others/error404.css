@@ -1,0 +1,87 @@
+#error404 {
+  height: 100vh;
+  background: radial-gradient(ellipse at bottom, #0d1b2a 0%, #000000 100%);
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+  position: relative;
+}
+
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
+  z-index: 0;
+  animation: moveStars 60s linear infinite;
+  pointer-events: none;
+}
+
+.planet {
+  width: 500px;
+  max-width: 90%;
+  margin-top: 30px;
+  opacity: 0.8;
+  z-index: 1;
+}
+
+.endurance {
+  width: 160px;
+  max-width: 50%;
+  animation: spin 20s linear infinite;
+  z-index: 2;
+}
+
+.text-content {
+  z-index: 3;
+}
+
+#error404 h1 {
+  font-size: 6rem;
+  margin-bottom: 10px;
+}
+
+#error404 p {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+#error404 .btn {
+  padding: 12px 30px;
+  background: #00ffe1;
+  color: #000;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+#error404 .btn:hover {
+  background: #0ff1ce;
+}
+
+@keyframes moveStars {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -10000px 5000px;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

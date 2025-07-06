@@ -3,39 +3,65 @@ import { loginPage } from './pages/login.js';
 import { perfilePage } from './pages/perfile.js';
 import { contactPage } from './pages/contact.js';
 import { shoppingPage } from './pages/shopping.js';
+import { invoicingPage } from './pages/invoicing.js';
+import { confirmPayPage } from './pages/others/confirmPayment.js';
+import { error404Page } from './pages/others/error404.js';
+
 
 const routes = {
   '/': home,
   '/login': loginPage,
   '/shopping': shoppingPage,
+  '/invoicing':invoicingPage,
+  '/confirmPay':confirmPayPage,
   '/contactUs': contactPage,
   '/perfile': perfilePage,
 };
 
 let routerTimeout;
+let lastPath = '';
 
 export async function router() {
-  console.log('Router ejecutado', new Date().toISOString());
-
   const path = location.hash.slice(1) || '/';
-  const page = routes[path];
 
+  if (path === lastPath) {
+    return; // No renderizar si no cambió la ruta
+  }
+  lastPath = path;
+
+  const page = routes[path];
   const app = document.getElementById('app');
   app.innerHTML = '';
 
   if (page) {
     const content = await page();
-    app.appendChild(content);
+
+    // Si el contenido marca error, no mostrar 404, ya muestra mensaje
+    if (content?.dataset?.error === 'true') {
+      app.appendChild(content);
+    } else {
+      app.appendChild(content);
+    }
   } else {
-    app.innerHTML = '<h2>404 - Página no encontrada</h2>';
+    app.appendChild(error404Page());
   }
 
   viewComponets(path);
 }
 
+
+
+
 function viewComponets(pathPage) {
-  document.getElementById('navbar').style.display = pathPage === '/login' ? 'none' : 'flex';
-  document.getElementById('footer').style.display = pathPage === '/login' ? 'none' : 'block';
+  const isLogin = pathPage === '/login';
+  const isConfirmPay = pathPage ==='/confirmPay'
+  const is404 = !routes[pathPage]; // Detecta si es un error 404
+
+  const navbar = document.getElementById('navbar');
+  const footer = document.getElementById('footer');
+
+  if (navbar) navbar.style.display = isLogin || is404 || isConfirmPay? 'none' : 'flex';
+  if (footer) footer.style.display = isLogin || is404 || isConfirmPay? 'none' : 'block';
 }
 
 window.addEventListener('hashchange', () => {

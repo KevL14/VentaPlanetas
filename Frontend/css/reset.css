@@ -59,8 +59,10 @@ body::selection{
   color: #1bd6e4;
 }
 body , #app{
+  min-height: 100vh;
   height: auto;
 }
+
 body::-webkit-scrollbar {     /* Chrome, Safari */
   display: none;
 }

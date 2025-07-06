@@ -16,8 +16,6 @@
 //     @GeneratedValue(strategy = GenerationType.IDENTITY)
 //     private Integer id;
 
-//     @Column(nullable = false, unique = true, length = 10)
-//     private String numeroFactura;
 
 //     @Column(nullable = false)
 //     private LocalDate fecha;
@@ -26,14 +24,13 @@
 //     private Double monto;
 
 //     @Column(nullable = false, length = 10)
-//     private String tipo; // "INGRESO" o "GASTO"
+//     private String tipo; //
 
 //     // Constructor vacío
 //     public Factura() {}
 
 //     // Constructor completo
-//     public Factura(String numeroFactura, LocalDate fecha, Double monto, String tipo, Lot lote, User usuario, Planet planeta) {
-//         this.numeroFactura = numeroFactura;
+//     public Factura(LocalDate fecha, Double monto, String tipo, Lot lote, User usuario, Planet planeta) {
 //         this.fecha = fecha;
 //         this.monto = monto;
 //         this.tipo = tipo;

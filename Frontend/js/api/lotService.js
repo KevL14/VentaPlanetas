@@ -1,10 +1,23 @@
 const BASE_URL = 'http://localhost:8080/api/Lot';
 
-export async function getLots() {
-  const res = await fetch(BASE_URL);
-  return res.json();
+export async function getLots(timeout = 1000) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeout);
+
+  try {
+    const res = await fetch(BASE_URL, { signal: controller.signal });
+    clearTimeout(timer);
+
+    if (!res.ok) throw new Error('Error en la respuesta del servidor');
+    return await res.json();
+
+  } catch (error) {
+    console.error('Error en getLots:', error);
+    return null; // Retorna null para indicar fallo
+  }
 }
 
+// Las otras funciones las dejas igual
 export async function addLot(lot) {
   const res = await fetch(BASE_URL, {
     method: 'POST',
@@ -27,5 +40,5 @@ export async function deleteLot(id) {
   const res = await fetch(`${BASE_URL}/delete/${id}`, {
     method: 'DELETE'
   });
-  return res.text(); // o json, depende qué devuelvas
+  return res.text();
 }
