@@ -1,0 +1,119 @@
+/* Estilo general */
+#invoiceCrudPage {
+  max-width: 900px;
+  margin: 8rem auto 2rem auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+}
+
+/* Títulos */
+#invoiceCrudPage h1, #invoiceCrudPage h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+/* Formulario */
+#invoiceForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#invoiceForm label {
+  font-weight: bold;
+  color: #34495e;
+  grid-column: span 2;
+}
+
+#invoiceForm input[type="text"],
+#invoiceForm input[type="date"],
+#invoiceForm input[type="number"],
+#invoiceForm select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#invoiceForm button[type="submit"] {
+  grid-column: span 2;
+  padding: 10px;
+  background-color: #2ecc71;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+#invoiceForm button[type="submit"]:hover {
+  background-color: #27ae60;
+}
+
+/* Buscador */
+#searchInvoices {
+  margin: 2rem 0 1rem;
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+/* Tabla */
+#invoicesTable {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+}
+
+#invoicesTable th,
+#invoicesTable td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  color: #333;
+}
+
+#invoicesTable th {
+  background-color: #2c3e50;
+  color: white;
+  font-weight: bold;
+}
+
+#invoicesTable td button {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+#invoicesTable td button:hover {
+  transform: scale(1.2);
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  #invoiceForm {
+    grid-template-columns: 1fr;
+  }
+
+  #invoiceCrudPage {
+    padding: 1rem;
+  }
+
+  #invoicesTable th, #invoicesTable td {
+    font-size: 0.9rem;
+  }
+}

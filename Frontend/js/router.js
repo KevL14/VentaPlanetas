@@ -4,19 +4,31 @@ import { perfilePage } from './pages/perfile.js';
 import { contactPage } from './pages/contact.js';
 import { shoppingPage } from './pages/shopping.js';
 import { invoicingPage } from './pages/invoicing.js';
+//others
 import { confirmPayPage } from './pages/others/confirmPayment.js';
 import { error404Page } from './pages/others/error404.js';
-
+import { adminCrudsPages } from './pages/others/adminCrudsPages.js';
+//cruds
+import { lotCrudPage } from './pages/cruds/lotCrudPage.js';
+import { userCrudPage } from './pages/cruds/userCrudPage.js';
+import { invoiceCrudPage } from './pages/cruds/invoiceCrudPage.js';
 
 const routes = {
-  '/': home,
+  '/': adminCrudsPages,
   '/login': loginPage,
   '/shopping': shoppingPage,
   '/invoicing':invoicingPage,
-  '/confirmPay':confirmPayPage,
   '/contactUs': contactPage,
   '/perfile': perfilePage,
+  //others
+  '/confirmPay':confirmPayPage,
+  '/adminCrudsPages':adminCrudsPages,
+  //cruds
+  '/lotCrud':lotCrudPage,
+  '/userCrud':userCrudPage,
+  '/invoiceCrud':invoiceCrudPage,
 };
+
 
 let routerTimeout;
 let lastPath = '';

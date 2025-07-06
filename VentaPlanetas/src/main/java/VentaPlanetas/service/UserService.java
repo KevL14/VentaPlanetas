@@ -17,9 +17,19 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public User addUser(User user) {
-        return this.userRepository.save(user);
+public User addUser(User user) {
+    // Si credit es null seria 0
+    if (user.getCredit() == null) {
+        user.setCredit(0);
     }
+    // Si tiene otro valor distinto de 0, se deja tal cual
+
+    if (user.getAdmin() == null) {
+        user.setAdmin(false);
+    }
+
+    return this.userRepository.save(user);
+}
 
     public List<User> getAllUsers() {
         return this.userRepository.findAll();
@@ -28,23 +38,26 @@ public class UserService {
     public Optional<User> findUserByName(String name) {
         return this.userRepository.findByName(name);
     }
+    public List<User> findUsersByName(String name) {
+    return userRepository.findByNameContainingIgnoreCase(name);
+}
 
-    public User editUser(Integer id, User userEdit) {
-        Optional<User> userOptional = this.userRepository.findById(id);
-        if (userOptional.isPresent()) {
-            User existingUser = userOptional.get();
+public User editUser(Integer id, User userEdit) {
+    Optional<User> userOptional = this.userRepository.findById(id);
+    if (userOptional.isPresent()) {
+        User existingUser = userOptional.get();
 
-            existingUser.setName(userEdit.getName());
-            existingUser.setEmail(userEdit.getEmail());
-            existingUser.setPassword(userEdit.getPassword());
-            existingUser.setage(userEdit.getage());
-            existingUser.setAdmin(userEdit.getAdmin());
+        existingUser.setName(userEdit.getName());
+        existingUser.setEmail(userEdit.getEmail());
+        existingUser.setPassword(userEdit.getPassword());
+        existingUser.setage(userEdit.getage());
+        existingUser.setCredit(userEdit.getCredit());  // <-- Esta línea es clave
+        existingUser.setAdmin(userEdit.getAdmin());
 
-            return userRepository.save(existingUser); // ✅ se guarda el objeto ya existente
-        }
-        return new User();
+        return userRepository.save(existingUser);
     }
-
+    return new User();
+}
     public void deleteUser(Integer id) {
         this.userRepository.deleteById(id);
     }

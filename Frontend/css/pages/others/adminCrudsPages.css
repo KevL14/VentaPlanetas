@@ -1,0 +1,55 @@
+#adminCrudsPage {
+  max-width: 900px;
+  margin: 5rem auto;
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: #1e1e2f;
+  color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+
+.admin-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.admin-subtitle {
+  font-size: 1.1rem;
+  color: #aaa;
+  margin-bottom: 2rem;
+}
+
+.admin-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  justify-content: center;
+}
+
+.admin-btn {
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #4c4c7f, #2e2e4f);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.admin-btn:hover {
+  background: linear-gradient(145deg, #5e5ed6, #3d3d70);
+  transform: scale(1.05);
+}
+
+.admin-btn.back {
+  grid-column: span 2;
+  background-color: #333;
+}
+
+.admin-btn.back:hover {
+  background-color: #555;
+}

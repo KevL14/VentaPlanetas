@@ -18,24 +18,28 @@ public class User {
     @Column(nullable = false, unique = true)
     private String name;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String password;
 
     @Column(nullable = false)
     private Integer age;
 
-    @Column(nullable = false, unique = true)
+    @Column()
+    private Integer credit;
+
+    @Column(nullable = false)
     private Boolean admin;
 
-    public User(Integer id, String name, String email, String password, Integer age, Boolean admin) {
+    public User(Integer id, String name, String email, String password, Integer credit, Integer age, Boolean admin) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
         this.age = age;
+        this.credit = credit;
         this.admin = admin;
     }
 
@@ -86,6 +90,14 @@ public class User {
 
     public void setage(Integer age) {
         this.age = age;
+    }
+
+    public Integer getCredit() {
+        return credit;
+    }
+
+    public void setCredit(Integer credit) {
+        this.credit = credit;
     }
 
     public Boolean getAdmin() {

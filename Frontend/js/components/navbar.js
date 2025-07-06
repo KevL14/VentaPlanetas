@@ -43,7 +43,8 @@ nav.innerHTML=`
   </button>
 </div>
 
-`;  nav.addEventListener('click', e => {
+`;  
+nav.addEventListener('click', e => {
     const btnHome = e.target.closest('#homeNav');
     const btnShopping = e.target.closest('#shoppingNav');
     const btnContact = e.target.closest('#contactUsNav');

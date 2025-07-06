@@ -1,0 +1,177 @@
+#lotCrudPage {
+  max-width: 80%;
+  margin: 8rem auto 2rem auto;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #f0f0f0;
+  background-color: #1e1e2f;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+#lotCrudPage h1,
+#lotCrudPage h2 {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+#lotCrudPage form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  background-color: #2a2a3f;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+#lotCrudPage form label {
+  grid-column: span 2;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+#lotCrudPage form input,
+#lotCrudPage form select {
+  grid-column: span 2;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1em;
+  background-color: #33334d;
+  color: #ffffff;
+}
+
+#lotCrudPage form button {
+  grid-column: span 2;
+  padding: 12px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  font-size: 1em;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+#lotCrudPage form button:hover {
+  background-color: #45a049;
+}
+
+/* --- Estilos para filtros de precio (inputs #priceMin y #priceMax) --- */
+#lotCrudPage label[for="priceMin"],
+#lotCrudPage label[for="priceMax"],
+#lotCrudPage #priceMin,
+#lotCrudPage #priceMax {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 10px 15px 0;
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 1em;
+}
+
+#lotCrudPage #priceMin,
+#lotCrudPage #priceMax {
+  width: 120px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: none;
+  background-color: #33334d;
+  color: white;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+#lotCrudPage #typeFilter {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 10px 15px 0;
+  padding: 8px 10px;
+  width: 140px;
+  border-radius: 6px;
+  border: none;
+  background-color: #33334d;
+  color: white;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+/* 🆕 Ajuste para alinear todos los filtros horizontalmente */
+#lotCrudPage .filters-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+/* 🆕 Nueva columna en tabla para tipo de par celeste */
+#lotCrudPage th:nth-child(3),
+#lotCrudPage td:nth-child(3) {
+  color: #a2d2ff;
+  font-weight: 500;
+}
+
+/* Ajuste para que los inputs estén alineados horizontalmente */
+#lotCrudPage h2 + label,
+#lotCrudPage h2 + input,
+#lotCrudPage h2 + label + input {
+  margin-right: 15px;
+}
+
+/* Estilo para el buscador principal (#searchLots) */
+#lotCrudPage input[type="text"]#searchLots {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: none;
+  background-color: #33334d;
+  color: white;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+#lotCrudPage table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #2a2a3f;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#lotCrudPage th,
+#lotCrudPage td {
+  padding: 12px;
+  border: 1px solid #444;
+  text-align: center;
+  color: #ffffff;
+}
+
+#lotCrudPage th {
+  background-color: #3b3b5c;
+  font-weight: bold;
+}
+
+#lotCrudPage tr:nth-child(even) {
+  background-color: #32324a;
+}
+
+#lotCrudPage button.editBtn,
+#lotCrudPage button.deleteBtn {
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  padding: 4px;
+}
+
+#lotCrudPage button.editBtn:hover {
+  color: #4CAF50;
+}
+
+#lotCrudPage button.deleteBtn:hover {
+  color: #f44336;
+}

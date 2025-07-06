@@ -1,0 +1,116 @@
+#userCrudPage {
+  max-width: 900px;
+  margin: 8rem auto 2rem auto;
+  padding: 20px; 
+  font-family: 'Segoe UI', sans-serif;
+  color: #f0f0f0;
+  background-color: #1e1e2f;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+#userCrudPage h1,
+#userCrudPage h2 {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+#userCrudPage form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  background-color: #2a2a3f;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+#userCrudPage form label {
+  grid-column: span 2;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+#userCrudPage form input,
+#userCrudPage form select {
+  grid-column: span 2;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1em;
+  background-color: #33334d;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+#userCrudPage form button {
+  grid-column: span 2;
+  padding: 12px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  font-weight: 700;
+  font-size: 1em;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+#userCrudPage form button:hover {
+  background-color: #45a049;
+}
+
+#userCrudPage input[type="text"]#searchUsers {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: none;
+  background-color: #33334d;
+  color: white;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+#userCrudPage table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #2a2a3f;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#userCrudPage th,
+#userCrudPage td {
+  padding: 12px;
+  border: 1px solid #444;
+  text-align: center;
+  color: #ffffff;
+}
+
+#userCrudPage th {
+  background-color: #3b3b5c;
+  font-weight: bold;
+}
+
+#userCrudPage tr:nth-child(even) {
+  background-color: #32324a;
+}
+
+#userCrudPage button.editBtn,
+#userCrudPage button.deleteBtn {
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  padding: 4px;
+}
+
+#userCrudPage button.editBtn:hover {
+  color: #4CAF50;
+}
+
+#userCrudPage button.deleteBtn:hover {
+  color: #f44336;
+}

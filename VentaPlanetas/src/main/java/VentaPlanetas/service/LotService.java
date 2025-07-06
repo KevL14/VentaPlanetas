@@ -28,9 +28,10 @@ public class LotService {
                 existinglot.setPlace(lotEdit.getPlace());
                 existinglot.setTypePlace(lotEdit.getTypePlace());
                 existinglot.setSquareSize(lotEdit.getSquareSize());
-                existinglot.setUrlImage(lotEdit.getUrlImage());
+                existinglot.setPrice(lotEdit.getPrice());
+                existinglot.setCelestialPair(lotEdit.getCelestialPair());
 
-                return lotRepository.save(existinglot); // ✅ se guarda el objeto ya existente
+                return lotRepository.save(existinglot);
             }
                 return null;
     }
@@ -38,7 +39,18 @@ public class LotService {
     public List<Lot> getAllLots(){
         return this.lotRepository.findAll();
     }
+    
+    public List<Lot> findLotsByCelestialPairType(String celestialPairType) {
+        return lotRepository.findByCelestialPairTypeIgnoreCase(celestialPairType);
+    }
 
+    public List<Lot> findLotsByPriceRange(Double min, Double max) {
+        return lotRepository.findByPriceBetween(min, max);
+    }
+
+    public List<Lot> findLotsWithoutOwner() {
+    return lotRepository.findByOwnerIdIsNull();
+}
     public void deleteLot(Integer id){
         this.lotRepository.deleteById(id);
     }

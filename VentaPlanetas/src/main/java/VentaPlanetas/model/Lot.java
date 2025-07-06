@@ -1,6 +1,5 @@
 package VentaPlanetas.model;
 
-import java.util.function.DoubleBinaryOperator;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,16 +14,19 @@ public class Lot {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column (nullable = true)
+    @Column(nullable = true)
     private Integer ownerId;
 
     @Column(nullable = false)
     private String celestialPair;
 
+    @Column()
+    private String celestialPairType;
+    
     @Column(nullable = false)
     private String place;
 
-    @Column (nullable = false)
+    @Column(nullable = false)
     private String typePlace;
 
     @Column(nullable = false)
@@ -33,18 +35,15 @@ public class Lot {
     @Column(nullable = false)
     private Double price;
 
-    @Column
-    private String urlImage;
-
        // Constructor con todos los campos excepto id (generado automáticamente)
-    public Lot(Integer ownerId, String celestialPair, String place, String typePlace, Integer squareSize, Double price, String urlImage) {
+    public Lot(Integer ownerId, String celestialPair, String celestialPairType, String place, String typePlace, Integer squareSize, Double price) {
         this.ownerId = ownerId;
         this.celestialPair = celestialPair;
+        this.celestialPairType = celestialPairType;
         this.place = place;
         this.typePlace = typePlace;
         this.squareSize = squareSize;
         this.price = price;
-        this.urlImage = urlImage;
     }
 
     // Constructor vacío
@@ -77,6 +76,14 @@ public class Lot {
         this.celestialPair = celestialPair;
     }
 
+    public String getCelestialPairType() {
+        return celestialPairType;
+    }
+
+    public void setCelestialPairType(String celestialPairType) {
+        this.celestialPairType = celestialPairType;
+    }
+
     public String getPlace() {
         return place;
     }
@@ -107,14 +114,6 @@ public class Lot {
 
     public void setPrice(Double price) {
         this.price = price;
-    }
-
-    public String getUrlImage() {
-        return urlImage;
-    }
-
-    public void setUrlImage(String urlImage) {
-        this.urlImage = urlImage;
     }
 
 }
