@@ -45,6 +45,7 @@ export async function addUser(user) {
     throw error;
   }
 }
+
 // Buscar usuarios por nombre (parcial o completo)
 export async function getUsersByName(name) {
   try {

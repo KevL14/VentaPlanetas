@@ -30,27 +30,37 @@ public class User {
     @Column()
     private Integer credit;
 
+    @Column()
+    private Integer creditInicial;  // NUEVO CAMPO
+
     @Column(nullable = false)
     private Boolean admin;
 
-    public User(Integer id, String name, String email, String password, Integer credit, Integer age, Boolean admin) {
+    // Constructor con creditInicial
+    public User(Integer id, String name, String email, String password, Integer credit, Integer creditInicial, Integer age, Boolean admin) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
         this.age = age;
         this.credit = credit;
+        this.creditInicial = creditInicial;
         this.admin = admin;
     }
 
+    // Constructor vacío
     public User() {
         this.id = 0;
         this.name = "";
         this.email = "";
         this.password = "";
         this.age = 0;
+        this.credit = 0;
+        this.creditInicial = 0;  // inicializar para evitar null
         this.admin = false;
     }
+
+    // Getters y setters...
 
     public Integer getId() {
         return id;
@@ -84,11 +94,11 @@ public class User {
         this.password = password;
     }
 
-    public Integer getage() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setage(Integer age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
@@ -98,6 +108,14 @@ public class User {
 
     public void setCredit(Integer credit) {
         this.credit = credit;
+    }
+
+    public Integer getCreditInicial() {
+        return creditInicial;
+    }
+
+    public void setCreditInicial(Integer creditInicial) {
+        this.creditInicial = creditInicial;
     }
 
     public Boolean getAdmin() {

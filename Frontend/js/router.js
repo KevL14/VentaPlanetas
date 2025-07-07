@@ -14,7 +14,7 @@ import { userCrudPage } from './pages/cruds/userCrudPage.js';
 import { invoiceCrudPage } from './pages/cruds/invoiceCrudPage.js';
 
 const routes = {
-  '/': adminCrudsPages,
+  '/': home,
   '/login': loginPage,
   '/shopping': shoppingPage,
   '/invoicing':invoicingPage,

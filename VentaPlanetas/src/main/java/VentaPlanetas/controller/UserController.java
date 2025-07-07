@@ -36,7 +36,8 @@ public class UserController {
         try {
             Optional<User> userOp = this.userService.findUserByName(user.getName());
             if (userOp.isPresent()) {
-                return ResponseEntity.status(HttpStatus.CONFLICT).body("El usuario con el nombre " + user.getName() + " ya se encuentra registrado.");
+                return ResponseEntity.status(HttpStatus.CONFLICT)
+                    .body("El usuario con el nombre " + user.getName() + " ya se encuentra registrado.");
             }
             User userSave = this.userService.addUser(user);
             return ResponseEntity.status(HttpStatus.CREATED).body(userSave);
@@ -47,43 +48,8 @@ public class UserController {
         }
     }
 
-    // Obtener todos los usuarios
-    @GetMapping
-    public ResponseEntity<?> getAllUsers() {
-        List<User> listUser = this.userService.getAllUsers();
-        if (listUser.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Usuarios no registrados!");
-        }
-        return ResponseEntity.ok(listUser);
-    }
-
-    // Obtener usuario por ID
-    @GetMapping("/{id}")
-    public ResponseEntity<?> findUserById(@PathVariable Integer id) {
-        Optional<User> userFind = this.userService.findUserById(id);
-        if (!userFind.isPresent()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body("El usuario con el id " + id + " no se encuentra registrado");
-        }
-        return ResponseEntity.ok(userFind.get()); // <- enviamos el objeto User directamente
-    }
-
-    // Buscar usuarios por nombre (parcial o completo)
-    @GetMapping("/search")
-    public ResponseEntity<?> findUsersByName(@RequestParam("name") String name) {
-        if (name == null || name.trim().isEmpty()) {
-            return ResponseEntity.badRequest().body("El parámetro 'name' es obligatorio");
-        }
-        List<User> users = userService.findUsersByName(name.trim());
-        if (users.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body("No se encontraron usuarios");
-        }
-        return ResponseEntity.ok(users);
-    }
-
-    // Editar usuario
     @PutMapping("/{id}")
-    public ResponseEntity<?> editUser(@Validated @PathVariable Integer id, @RequestBody User user, BindingResult result){
+    public ResponseEntity<?> editUser(@Validated @PathVariable Integer id, @RequestBody User userUpdates, BindingResult result){
         if(result.hasErrors()) {
             Map<String, String> errores = new HashMap<>();
             for (FieldError error : result.getFieldErrors()) {
@@ -96,11 +62,52 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body("El usuario con el id "+id+" no se encuentra registrado");
         }
-        User updatedUser = this.userService.editUser(id, user);
+        User existingUser = userFind.get();
+
+        // Actualizar solo los campos permitidos (por ejemplo crédito y crédito inicial)
+        if (userUpdates.getCredit() != null) {
+            existingUser.setCredit(userUpdates.getCredit());
+        }
+        if (userUpdates.getCreditInicial() != null) {
+            existingUser.setCreditInicial(userUpdates.getCreditInicial());
+        }
+        // Aquí podrías agregar más campos para actualizar si deseas
+
+        User updatedUser = this.userService.editUser(id, existingUser);
         return ResponseEntity.ok(updatedUser);
     }
 
-    // Eliminar usuario
+    @GetMapping
+    public ResponseEntity<?> getAllUsers() {
+        List<User> listUser = this.userService.getAllUsers();
+        if (listUser.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Usuarios no registrados!");
+        }
+        return ResponseEntity.ok(listUser);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> findUserById(@PathVariable Integer id) {
+        Optional<User> userFind = this.userService.findUserById(id);
+        if (!userFind.isPresent()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("El usuario con el id " + id + " no se encuentra registrado");
+        }
+        return ResponseEntity.ok(userFind.get());
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<?> findUsersByName(@RequestParam("name") String name) {
+        if (name == null || name.trim().isEmpty()) {
+            return ResponseEntity.badRequest().body("El parámetro 'name' es obligatorio");
+        }
+        List<User> users = userService.findUsersByName(name.trim());
+        if (users.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body("No se encontraron usuarios");
+        }
+        return ResponseEntity.ok(users);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteUser(@PathVariable Integer id){
         Optional<User> userFind = this.userService.findUserById(id);

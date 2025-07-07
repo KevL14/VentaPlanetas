@@ -1,5 +1,6 @@
 import { addUser, getAllUsers } from '../api/userService.js';
-import { setActiveUser } from '../userSession.js'; // o donde tengas tu manejo de sesión
+import { setActiveUser } from '../userSession.js';
+import { navbar } from '../components/navbar.js'; // Asegúrate que esta ruta sea correcta
 
 export function loginPage() {
   const login = document.createElement("div");
@@ -16,24 +17,24 @@ export function loginPage() {
           <!-- login  -->
           <div class="flip-card__inner">
             <div class="flip-card__front">
-              <div class="title">Log in</div>
+              <div class="title">Iniciar Sesion</div>
               <form id="loginForm" class="flip-card__form" autocomplete="off">
                 <input class="flip-card__input" name="email" placeholder="Email" type="email" required>
-                <input class="flip-card__input" name="password" placeholder="Password" type="password" required>
-                <button type="submit" class="flip-card__btn">Lets go!</button>
+                <input class="flip-card__input" name="password" placeholder="Contraseña" type="password" required>
+                <button type="submit" class="flip-card__btn">Iniciar Sesion</button>
               </form>
               <div id="loginError" style="color: red; margin-top: 10px;"></div>
             </div>
 
             <!-- register  -->
             <div class="flip-card__back">
-              <div class="title">Sign up</div>
+              <div class="title">Registrarse</div>
               <form id="registerForm" class="flip-card__form" autocomplete="off">
-                <input class="flip-card__input" name="name" placeholder="Name" type="text" required>
+                <input class="flip-card__input" name="name" placeholder="Nombre" type="text" required>
                 <input class="flip-card__input" name="email" placeholder="Email" type="email" required>
-                <input class="flip-card__input" name="password" placeholder="Password (min 6 chars)" type="password" required>
-                <input class="flip-card__input" name="age" placeholder="Age" type="number" min="0" required>
-                <button type="submit" class="flip-card__btn">Confirm!</button>
+                <input class="flip-card__input" name="password" placeholder="Contraseña (min 6 letra o numeros)" type="password" required>
+                <input class="flip-card__input" name="age" placeholder="Edad" type="number" min="0" required>
+                <button type="submit" class="flip-card__btn">Confirmar</button>
               </form>
               <div id="registerError" style="color: red; margin-top: 10px;"></div>
               <div id="registerSuccess" style="color: green; margin-top: 10px;"></div>
@@ -61,10 +62,7 @@ export function loginPage() {
     }
 
     try {
-      // Obtener todos los usuarios para verificar login (idealmente usar endpoint backend que devuelva por email)
       const users = await getAllUsers();
-
-      // Buscar usuario con email y contraseña iguales
       const user = users.find(u => u.email.toLowerCase() === email.toLowerCase() && u.password === password);
 
       if (!user) {
@@ -72,9 +70,16 @@ export function loginPage() {
         return;
       }
 
-      // Guardar usuario activo y redirigir
+      // Guardar usuario y recargar navbar
       setActiveUser(user);
-      location.hash = '/'; // o a donde quieras redirigir
+
+      const navbarContainer = document.getElementById('navbar');
+      if (navbarContainer) {
+        navbarContainer.innerHTML = '';
+        navbarContainer.appendChild(navbar());
+      }
+
+      location.hash = '/';
 
     } catch (err) {
       loginError.textContent = 'Error al iniciar sesión. Intente más tarde.';
@@ -97,8 +102,7 @@ export function loginPage() {
     const password = registerForm.password.value.trim();
     const age = parseInt(registerForm.age.value);
 
-    // Validaciones
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
     if (!name || !email || !password || isNaN(age)) {
       registerError.textContent = 'Por favor complete todos los campos.';
       return;
@@ -117,21 +121,19 @@ export function loginPage() {
     }
 
     try {
-      // Verificar si email ya existe
       const users = await getAllUsers();
       if (users.find(u => u.email.toLowerCase() === email.toLowerCase())) {
         registerError.textContent = 'El email ya está registrado.';
         return;
       }
 
-      // Crear usuario con credit 0 y admin false
       const newUser = {
         name,
         email,
         password,
         age,
         credit: 0,
-        admin: false,
+        admin: 0 // Por defecto
       };
 
       await addUser(newUser);

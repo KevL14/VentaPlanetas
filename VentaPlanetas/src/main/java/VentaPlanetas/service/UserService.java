@@ -47,17 +47,34 @@ public User editUser(Integer id, User userEdit) {
     if (userOptional.isPresent()) {
         User existingUser = userOptional.get();
 
-        existingUser.setName(userEdit.getName());
-        existingUser.setEmail(userEdit.getEmail());
-        existingUser.setPassword(userEdit.getPassword());
-        existingUser.setage(userEdit.getage());
-        existingUser.setCredit(userEdit.getCredit());  // <-- Esta línea es clave
-        existingUser.setAdmin(userEdit.getAdmin());
+        // Actualiza solo si el nuevo valor no es null
+        if (userEdit.getName() != null) {
+            existingUser.setName(userEdit.getName());
+        }
+        if (userEdit.getEmail() != null) {
+            existingUser.setEmail(userEdit.getEmail());
+        }
+        if (userEdit.getPassword() != null) {
+            existingUser.setPassword(userEdit.getPassword());
+        }
+        if (userEdit.getAge() != null) {
+            existingUser.setAge(userEdit.getAge());
+        }
+        if (userEdit.getCredit() != null) {
+            existingUser.setCredit(userEdit.getCredit());
+        }
+        if (userEdit.getAdmin() != null) {
+            existingUser.setAdmin(userEdit.getAdmin());
+        }
+        if (userEdit.getCreditInicial() != null) {
+            existingUser.setCreditInicial(userEdit.getCreditInicial());
+        }
 
         return userRepository.save(existingUser);
     }
-    return new User();
+    return new User(); // o lanzar excepción según diseño
 }
+
     public void deleteUser(Integer id) {
         this.userRepository.deleteById(id);
     }
