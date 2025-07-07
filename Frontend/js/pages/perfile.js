@@ -104,6 +104,8 @@ export async function perfilePage() {
   const creditCancelBtn = perfile.querySelector('#creditCancelBtn');
   const btnDepositar = perfile.querySelector('#btnDepositar');
   const btnRetirar = perfile.querySelector('#btnRetirar');
+  const cardNumberInput = creditForm.querySelector('input[name="cardNumber"]');
+  const cardTypeIndicator = perfile.querySelector('#cardTypeIndicator');
 
   userNameEl.textContent = activeUser.name;
   ageEl.textContent = activeUser.age;
@@ -120,36 +122,25 @@ export async function perfilePage() {
     creditForm.reset();
     creditError.textContent = '';
     creditModal.style.display = 'flex';
-    cardTypeIndicator.textContent = ''; // Limpiar al abrir modal
+    cardTypeIndicator.textContent = '';
   };
 
   creditCancelBtn.onclick = () => {
     creditModal.style.display = 'none';
   };
 
-  // Detección dinámica tipo tarjeta
-  const cardNumberInput = creditForm.querySelector('input[name="cardNumber"]');
-  const cardTypeIndicator = perfile.querySelector('#cardTypeIndicator');
-
-  function detectarTipoTarjeta(numero) {
-    const num = numero.replace(/\s+/g, '');
-    if (!num) return '';
-
-    if (/^4/.test(num)) return 'Visa';
-    if (/^(5[1-5])/.test(num)) return 'Mastercard';
-    if (/^(222[1-9]|22[3-9]\d|2[3-6]\d{2}|27[01]\d|2720)/.test(num)) return 'Mastercard';
-
-    return 'Desconocida';
-  }
-
   cardNumberInput.addEventListener('input', () => {
-    const tipo = detectarTipoTarjeta(cardNumberInput.value);
+    const num = cardNumberInput.value.replace(/\s+/g, '');
+    let tipo = '';
+    if (/^4/.test(num)) tipo = 'Visa';
+    else if (/^(5[1-5])/.test(num) || /^(222[1-9]|22[3-9]\d|2[3-6]\d{2}|27[01]\d|2720)/.test(num)) tipo = 'Mastercard';
+    else if (num) tipo = 'Desconocida';
     cardTypeIndicator.textContent = tipo ? `Tipo: ${tipo}` : '';
   });
 
   const validarTarjeta = card => {
-    const cardRegex = /^(4\d{15}|5[1-5]\d{14}|222[1-9]\d{12}|22[3-9]\d{13}|2[3-6]\d{14}|27[01]\d{13}|2720\d{12})$/;
-    return cardRegex.test(card.replace(/\s+/g, ''));
+    const regex = /^(4\d{15}|5[1-5]\d{14}|222[1-9]\d{12}|22[3-9]\d{13}|2[3-6]\d{14}|27[01]\d{13}|2720\d{12})$/;
+    return regex.test(card.replace(/\s+/g, ''));
   };
 
   async function manejarOperacion(isDeposito) {
@@ -189,6 +180,7 @@ export async function perfilePage() {
         userInvestedEl.textContent = totalInvertido.toLocaleString('es-CR', { style: 'currency', currency: 'CRC' });
 
         const lots = await Promise.all(invoices.map(inv => getLotById(inv.lotId)));
+
         listLotsUser.innerHTML = `
           <h2>Lotes Comprados</h2>
           <ul>
@@ -231,11 +223,13 @@ export async function perfilePage() {
 
             if (confirm('¿Seguro que deseas renunciar a esta propiedad?')) {
               try {
-                await deleteInvoice(invoiceId);
-
                 const lot = await getLotById(lotId);
                 lot.ownerId = null;
                 await editLot(lotId, lot);
+                console.log('Propiedad liberada correctamente.');
+
+                await deleteInvoice(invoiceId);
+                console.log('Factura eliminada correctamente.');
 
                 activeUser.credit += amount;
                 await editUser(activeUser.id, activeUser);

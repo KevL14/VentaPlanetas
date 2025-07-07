@@ -19,7 +19,7 @@ public class Invoice {
 
     @Column(nullable = false)
     private String userName;
-
+    
     @Column(nullable = false)
     private LocalDate date;
 

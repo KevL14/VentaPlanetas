@@ -3,7 +3,6 @@ import { loginPage } from './pages/login.js';
 import { perfilePage } from './pages/perfile.js';
 import { contactPage } from './pages/contact.js';
 import { shoppingPage } from './pages/shopping.js';
-import { invoicingPage } from './pages/invoicing.js';
 //others
 import { confirmPayPage } from './pages/others/confirmPayment.js';
 import { error404Page } from './pages/others/error404.js';
@@ -17,7 +16,6 @@ const routes = {
   '/': home,
   '/login': loginPage,
   '/shopping': shoppingPage,
-  '/invoicing':invoicingPage,
   '/contactUs': contactPage,
   '/perfile': perfilePage,
   //others

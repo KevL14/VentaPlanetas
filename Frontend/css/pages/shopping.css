@@ -1,7 +1,3 @@
-/* =======================
-   Estilos para Shopping
-   ======================= */
-
 #shopping {
   min-height: 100vh;
   background-color: #0f0f1f;
@@ -108,7 +104,7 @@
 .lot-card .lot-description h3 {
   font-size: 1.4rem;
   color: #52daff;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem; /* aumentado para más separación */
 }
 
 .lot-card .lot-description p {
@@ -116,6 +112,7 @@
   color: #ccc;
   line-height: 1.5;
   margin: 0;
+  margin-top: 0.3rem; /* agregado para separar del título */
 }
 
 /* 🔻 Información técnica */
@@ -124,23 +121,39 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 0.8rem 1.2rem;
-  background-color: #1a1a2e;
-  border-top: 1px solid #2c2c40;
+  padding: 0.8rem 1rem;
+    border-top: 1px solid #2c2c40;
 }
 
 /* 🏷️ Etiquetas */
 .lot-card .tag {
-  padding: 0.4rem 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.5rem;
   border-radius: 6px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
+  height: 2rem;
+  line-height: 1;
 }
 
 .lot-card .tag.tipo {
   border: 2px solid white;
   background-color: #131313;
   color: #bf9fff;
+  text-transform: capitalize;
+}
+
+.lot-card .tag.tipo[data-type="planet"]::before {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.lot-card .tag.tipo[data-type="moon"]::before {
+  font-size: 1rem;
+  line-height: 1;
 }
 
 .lot-card .tag.precio {
@@ -203,16 +216,16 @@
    ============================= */
 
 #purchaseModal {
-  position: fixed; /* fijo en pantalla */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(15, 15, 31, 0.85); /* fondo oscuro semi-transparente */
+  background-color: rgba(15, 15, 31, 0.85);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999; /* muy arriba */
+  z-index: 9999;
 }
 
 #purchaseModal .modal-content {
