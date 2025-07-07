@@ -102,7 +102,8 @@ export function loginPage() {
     const password = registerForm.password.value.trim();
     const age = parseInt(registerForm.age.value);
 
-    const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     if (!name || !email || !password || isNaN(age)) {
       registerError.textContent = 'Por favor complete todos los campos.';
       return;
