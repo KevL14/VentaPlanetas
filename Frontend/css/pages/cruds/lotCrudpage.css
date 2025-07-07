@@ -98,7 +98,7 @@
   box-sizing: border-box;
 }
 
-/* 🆕 Ajuste para alinear todos los filtros horizontalmente */
+/* Ajuste para alinear todos los filtros horizontalmente */
 #lotCrudPage .filters-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -107,7 +107,7 @@
   margin-bottom: 20px;
 }
 
-/* 🆕 Nueva columna en tabla para tipo de par celeste */
+/* Nueva columna en tabla para tipo de par celeste */
 #lotCrudPage th:nth-child(3),
 #lotCrudPage td:nth-child(3) {
   color: #a2d2ff;

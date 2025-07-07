@@ -35,7 +35,7 @@ export async function router() {
   const path = location.hash.slice(1) || '/';
 
   if (path === lastPath) {
-    return; // No renderizar si no cambió la ruta
+    return; 
   }
   lastPath = path;
 
@@ -46,7 +46,7 @@ export async function router() {
   if (page) {
     const content = await page();
 
-    // Si el contenido marca error, no mostrar 404, ya muestra mensaje
+    // Si marca error
     if (content?.dataset?.error === 'true') {
       app.appendChild(content);
     } else {
@@ -76,7 +76,7 @@ function viewComponets(pathPage) {
 
 window.addEventListener('hashchange', () => {
   clearTimeout(routerTimeout);
-  routerTimeout = setTimeout(router, 50); // Espera 50ms para evitar dobles llamadas rápidas
+  routerTimeout = setTimeout(router, 50); // Espera 50ms para dar tiempo
 });
 
 window.addEventListener('load', router);

@@ -35,7 +35,7 @@ export function home(){
                     Descripcion
                 </h1>
                 <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error neque laudantium quod, soluta praesentium ipsam voluptatibus nesciunt. Delectus est sed ipsum id consequatur labore fugiat laboriosam asperiores praesentium maxime rem sunt dolor, sapiente aliquid dolorum ad. Quisquam voluptate voluptas corrupti?
+                    SpaceLot es una plataforma futurista que permite comprar y gestionar terrenos en planetas y lunas del sistema solar. Los usuarios pueden explorar lotes disponibles, adquirir propiedades espaciales, hacer pagos virtuales y llevar el control desde su perfil, todo dentro de una experiencia inmersiva de colonización interplanetaria.
                 </p>
             </div>
             <div data-aos="fade" data-aos-delay="500" data-aos-duration="900">

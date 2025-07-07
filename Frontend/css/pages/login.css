@@ -1,22 +1,20 @@
-#login{
+#login {
   display: flex;
-  background-image: url("/Frontend/images/Pages/login/Background.webp");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-color: rgba(0, 0, 0, 0.4); /* capa negra con 50% de opacidad */
   justify-content: center;
-  align-items: center;
+  padding-top: 12rem;
   width: 100%;
   height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+              url("/Frontend/images/Pages/login/Background.webp") no-repeat center center / cover;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 /* switch card */
 .switch {
-  transform: translateY(-200px);
+  transform: translateY(-100px);
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 30px;
   width: 50px;
@@ -30,7 +28,7 @@
   top: 0;
   width: 100px;
   text-decoration: underline;
-  color: var(--input-focus-w);
+  color: #2ecc71;
   font-weight: 600;
 }
 
@@ -41,49 +39,42 @@
   top: 0;
   width: 100px;
   text-decoration: none;
-  color: var(--font-color-w);
+  color: #aaa;
   font-weight: 600;
 }
 
 .toggle {
-  background-color: var(--bg-color-w);
   opacity: 0;
   width: 0;
   height: 0;
 }
 
 .slider {
-  box-sizing: border-box;
   border-radius: 5px;
-  border: 2px solid var(--bg-color-w);
-  box-shadow: 4px 4px #316c13;
+  border: 2px solid #2ecc71;
+  box-shadow: 4px 4px #1e1e2f;
   position: absolute;
   cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: var(--bg-colorcolor);
+  width: 50px;
+  height: 20px;
+  background-color: #222;
   transition: 0.3s;
 }
 
 .slider:before {
-  box-sizing: border-box;
   position: absolute;
   content: "";
   height: 20px;
   width: 20px;
-  border: 2px solid var(--main-color);
   border-radius: 5px;
+  background-color: #2ecc71;
   left: -2px;
   bottom: 2px;
-  background-color: var(--bg-color-w);
-  box-shadow: 0 3px 0 var(--main-color);
   transition: 0.3s;
 }
 
 .toggle:checked + .slider {
-  background-color: var(--input-focus-w);
+  background-color: #3498db;
 }
 
 .toggle:checked + .slider:before {
@@ -91,23 +82,21 @@
 }
 
 .toggle:checked ~ .card-side:before {
+  color: #aaa;
   text-decoration: none;
-  color: var(--bg-color-w);
 }
 
 .toggle:checked ~ .card-side:after {
-  color: var(--input-focus-w);
+  color: #2ecc71;
   text-decoration: underline;
 }
 
-/* card */ 
-
+/* card container */
 .flip-card__inner {
   width: 30em;
-  height: 35em;
+  height: 36em;
   position: relative;
   perspective: 1000px;
-  text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
 }
@@ -116,36 +105,37 @@
   transform: rotateY(180deg);
 }
 
-.toggle:checked ~ .flip-card__front {
-  box-shadow: none;
-}
-
-
-/* cards login e sign up  */
-.flip-card__front {
-  width: 100%;
-}
-.flip-card__back {
-  width: 100%;
-  transform: rotateY(180deg);
-}
-
+/* front and back cards */
 .flip-card__front, .flip-card__back {
-  padding: 20px;
+  padding: 30px;
   position: absolute;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  background: rgba(211, 211, 211, 0.76);
   gap: 20px;
-  border-radius: 5px;
-  border: 2px solid var(--main-color);
-  box-shadow: 4px 4px var(--main-color);
+  background: rgba(30, 30, 47, 0.95);
+  border: 2px solid #2ecc71;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  backdrop-filter: blur(6px);
 }
 
+.flip-card__back {
+  transform: rotateY(180deg);
+}
 
+/* title */
+.title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: bold;
+  color: #2ecc71;
+  text-align: center;
+}
+
+/* form layout */
 .flip-card__form {
   display: flex;
   flex-direction: column;
@@ -153,57 +143,48 @@
   gap: 20px;
 }
 
-.title {
-  margin: 20px 0 20px 0;
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 900;
-  text-align: center;
-  color: var(--main-color);
-}
-
 .flip-card__input {
-  width: 20rem;
-  height: 2.3rem;
-  border-radius: 5px;
-  border: 2px solid var(--main-color);
-  background-color: var(--bg-color-w);
-  box-shadow: 4px 4px var(--main-color);
-  font-size: 15px;
+  width: 80%;
+  height: 2.5rem;
+  padding: 8px 12px;
+  font-size: 1rem;
   font-weight: 600;
-  color: var(--font-color);
-  padding: 5px 10px;
+  border-radius: 6px;
+  border: 2px solid #3498db;
+  background-color: #fff;
+  color: #1e1e2f;
+  box-shadow: 3px 3px #2ecc71;
   outline: none;
 }
 
-.flip-card__input::placeholder {
-  color: var(--font-color-sub);
-  opacity: 0.8;
-}
-
 .flip-card__input:focus {
-  border: 2px solid var(--input-focus-w);
+  border-color: #2ecc71;
 }
 
-.flip-card__btn:active, .button-confirm:active {
-  box-shadow: 0px 0px var(--main-color);
-  transform: translate(3px, 3px);
+.flip-card__input::placeholder {
+  color: #888;
 }
 
+/* button */
 .flip-card__btn {
-  margin: 20px 0 20px 0;
-  width: 120px;
-  height: 40px;
-  border-radius: 5px;
-  border: 2px solid var(--main-color);
-  background-color: var(--bg-color-w);
-  box-shadow: 4px 4px var(--main-color);
-  font-size: 17px;
-  font-weight: 600;
-  color: var(--font-color);
+  width: 130px;
+  height: 45px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #2ecc71;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 3px 3px #1e1e2f;
   cursor: pointer;
-} 
-.flip-card__btn:hover{
-  background-color: var(--input-focus-w);
-  color: var(--bg-color);
-  transform: translate(-3px, -3px);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.flip-card__btn:hover {
+  background-color: #27ae60;
+  transform: translate(-2px, -2px);
+}
+
+.flip-card__btn:active {
+  transform: scale(0.98);
 }

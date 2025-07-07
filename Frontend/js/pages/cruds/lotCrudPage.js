@@ -20,6 +20,8 @@ const PLANETS = ['marte', 'venus', 'ceres'];
 export async function lotCrudPage() {
   const page = document.createElement('div');
   page.id = 'lotCrudPage';
+    page.dataset.aos = 'fade';
+  page.dataset.aosDuration = '1000';
 
   page.innerHTML = `
     <h1>Gestión de Lotes Espaciales</h1>

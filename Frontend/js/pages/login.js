@@ -115,8 +115,8 @@ export function loginPage() {
       registerError.textContent = 'La contraseña debe tener mínimo 6 caracteres.';
       return;
     }
-    if (age < 0) {
-      registerError.textContent = 'La edad no puede ser negativa.';
+    if (age < 18) {
+      registerError.textContent = 'Debe ser mayor de 18 años para registrarse.';
       return;
     }
 

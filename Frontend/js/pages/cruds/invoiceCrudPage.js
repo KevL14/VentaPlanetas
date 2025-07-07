@@ -20,7 +20,8 @@ import {
 export async function invoiceCrudPage() {
   const page = document.createElement('div');
   page.id = 'invoiceCrudPage';
-
+  page.dataset.aos = 'fade';
+  page.dataset.aosDuration = '1000';
   page.innerHTML = `
     <h1>Gestión de Facturas Espaciales</h1>
 
