@@ -32,7 +32,7 @@ let routerTimeout;
 let lastPath = '';
 
 export async function router() {
-  const path = location.hash.slice(1) || '/';
+  const path = location.hash.slice(1) || '/login';
 
   if (path === lastPath) {
     return; 
