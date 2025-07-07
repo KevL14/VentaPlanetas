@@ -48,34 +48,51 @@ public class UserController {
         }
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<?> editUser(@Validated @PathVariable Integer id, @RequestBody User userUpdates, BindingResult result){
-        if(result.hasErrors()) {
-            Map<String, String> errores = new HashMap<>();
-            for (FieldError error : result.getFieldErrors()) {
-                errores.put(error.getField(), error.getDefaultMessage());
-            }
-            return ResponseEntity.badRequest().body(errores);
+   @PutMapping("/{id}")
+public ResponseEntity<?> editUser(@Validated @PathVariable Integer id, @RequestBody User userUpdates, BindingResult result){
+    if(result.hasErrors()) {
+        Map<String, String> errores = new HashMap<>();
+        for (FieldError error : result.getFieldErrors()) {
+            errores.put(error.getField(), error.getDefaultMessage());
         }
-        Optional<User> userFind = this.userService.findUserById(id);
-        if(!userFind.isPresent()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body("El usuario con el id "+id+" no se encuentra registrado");
-        }
-        User existingUser = userFind.get();
-
-        // Actualizar solo los campos permitidos (por ejemplo crédito y crédito inicial)
-        if (userUpdates.getCredit() != null) {
-            existingUser.setCredit(userUpdates.getCredit());
-        }
-        if (userUpdates.getCreditInicial() != null) {
-            existingUser.setCreditInicial(userUpdates.getCreditInicial());
-        }
-        // Aquí podrías agregar más campos para actualizar si deseas
-
-        User updatedUser = this.userService.editUser(id, existingUser);
-        return ResponseEntity.ok(updatedUser);
+        return ResponseEntity.badRequest().body(errores);
     }
+
+    Optional<User> userFind = this.userService.findUserById(id);
+    if(!userFind.isPresent()){
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body("El usuario con el id "+id+" no se encuentra registrado");
+    }
+
+    User existingUser = userFind.get();
+
+    // 🔧 Actualizar todos los campos necesarios
+    if (userUpdates.getName() != null) {
+        existingUser.setName(userUpdates.getName());
+    }
+    if (userUpdates.getEmail() != null) {
+        existingUser.setEmail(userUpdates.getEmail());
+    }
+    if (userUpdates.getPassword() != null) {
+        existingUser.setPassword(userUpdates.getPassword());
+    }
+    if (userUpdates.getAge() != null) {
+        existingUser.setAge(userUpdates.getAge());
+    }
+    if (userUpdates.getCredit() != null) {
+        existingUser.setCredit(userUpdates.getCredit());
+    }
+    if (userUpdates.getCreditInicial() != null) {
+        existingUser.setCreditInicial(userUpdates.getCreditInicial());
+    }
+    if (userUpdates.getAdmin() != null) {
+        existingUser.setAdmin(userUpdates.getAdmin());
+    }
+
+    User updatedUser = this.userService.editUser(id, existingUser);
+    return ResponseEntity.ok(updatedUser);
+}
+
 
     @GetMapping
     public ResponseEntity<?> getAllUsers() {
